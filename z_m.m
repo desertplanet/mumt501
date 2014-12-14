@@ -1,10 +1,13 @@
-function z = z_m(m,K)
+function z = z_m(m,n)
 
 global w;
 global x;
+global K;
 
-k = 0:K;
+k = int8(1:K);
 
-z = sum(z_m_fun(k),k);
+z = z_m_fun(n,m,k);
+
+z = sum(z);
 
 end
