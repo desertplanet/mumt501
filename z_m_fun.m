@@ -1,4 +1,4 @@
-function fun = z(m,n,k)
+function fun = z_m_fun(m,n,k)
 
 global x;
 global w;

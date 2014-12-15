@@ -1,6 +1,6 @@
-function y = y(w,x,i)
+function y = y(i)
 
-new_y = conv(w,x);
+global new_y;
 
 y = new_y(i);
 
