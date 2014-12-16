@@ -1,6 +1,7 @@
 global w;
 global x;
 global mu;
+global sumM;
 
 int8 delta;
 int8 n;
@@ -13,17 +14,17 @@ n = 75;
 
 M = 30;
 
-sumM = 0;
-
 tol = 1e-20;
 
 check = 1;
 
 i = 1;
 
+w1 = w;
+
 while check > tol
 
-	parfun = @(sumM,w) newW(sumM,w);
+	sumM = 0;
 
 	for m = delta:M
 
@@ -36,15 +37,18 @@ while check > tol
 
 		A = w(i);
 
-		fun = @(A) parfun(sumM,A);
+		fun = @newW;
 
-		w1(i) = fzero(fun, 1);
+		w1(i) =  fzero(fun,1);
+
 	end 
 
 	check = mean( abs(w1 - w) )
 
 	w = w1;
 
-	n = n + 1;
+	n = n + 1;s
+
+	new_y = conv(x,w);
 
 end
